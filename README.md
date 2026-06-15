@@ -1,7 +1,7 @@
 # 🔐 Cybersecurity Learning Journey
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Days](https://img.shields.io/badge/Day-13%2F75-blue)
+![Days](https://img.shields.io/badge/Day-14%2F75-blue)
 ![Platform](https://img.shields.io/badge/Platform-TryHackMe-red)
 
 ## 👩‍💻 About Me
@@ -35,7 +35,7 @@ independence through cybersecurity.
 | 10 | SQL Injection | ✅ Complete |
 | 11 | XSS Cross Site Scripting | ✅ Complete |
 | 12 | IDOR | ✅ Complete |
-| 13 | Authentication Bypass | 🔄 In Progress |
+| 13 | Authentication Bypass | Complete |
 
 ---
 
