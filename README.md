@@ -36,6 +36,7 @@ independence through cybersecurity.
 | 11 | XSS Cross Site Scripting | ✅ Complete |
 | 12 | IDOR | ✅ Complete |
 | 13 | Authentication Bypass | Complete |
+| 14 | File Inclusion   | Complete |
 
 ---
 
