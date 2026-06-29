@@ -1,7 +1,7 @@
 # 🔐 Cybersecurity Learning Journey
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Days](https://img.shields.io/badge/Day-14%2F75-blue)
+![Days](https://img.shields.io/badge/Day-16%2F75-blue)
 ![Platform](https://img.shields.io/badge/Platform-TryHackMe-red)
 
 ## 👩‍💻 About Me
@@ -37,6 +37,8 @@ independence through cybersecurity.
 | 12 | IDOR | ✅ Complete |
 | 13 | Authentication Bypass | Complete |
 | 14 | File Inclusion   | Complete |
+| 15 | SSRF | ✅ Complete |
+| 16 | Command Injection |  Complete |
 
 ---
 
