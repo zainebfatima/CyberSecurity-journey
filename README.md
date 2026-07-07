@@ -1,7 +1,7 @@
 # 🔐 Cybersecurity Learning Journey
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Days](https://img.shields.io/badge/Day-16%2F75-blue)
+![Days](https://img.shields.io/badge/Day-18%2F75-blue)
 ![Platform](https://img.shields.io/badge/Platform-TryHackMe-red)
 
 ## 👩‍💻 About Me
@@ -39,6 +39,8 @@ independence through cybersecurity.
 | 14 | File Inclusion   | Complete |
 | 15 | SSRF | ✅ Complete |
 | 16 | Command Injection |  Complete |
+| 17 | XXE |  Complete |
+| 18 | CSRF |  Complete |
 
 ---
 
