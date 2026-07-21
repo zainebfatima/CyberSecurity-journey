@@ -1,7 +1,7 @@
 # 🔐 Cybersecurity Learning Journey
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Days](https://img.shields.io/badge/Day-19%2F75-blue)
+![Days](https://img.shields.io/badge/Day-21%2F75-blue)
 ![Platform](https://img.shields.io/badge/Platform-TryHackMe-red)
 
 ## 👩‍💻 About Me
@@ -40,9 +40,10 @@ independence through cybersecurity.
 | 15 | SSRF | ✅ Complete |
 | 16 | Command Injection |  Complete |
 | 17 | XXE |  Complete |
-| 18 | CSRF |  Complete |
+| 18 | CSRF |  C| omplete |
 | 19 | Burp Suite Basics |  Complete |
-
+| 20 | Burp Suite Repeater |  Complete |
+| 21 | Burp Suite Target & Scope |  Complete |
 ---
 
 ## 🛠️ Tools Learned
